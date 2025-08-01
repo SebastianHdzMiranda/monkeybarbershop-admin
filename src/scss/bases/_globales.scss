@@ -1,0 +1,73 @@
+@use 'variables' as v; 
+@use 'mixins' as m;
+
+
+/* Globales
+----------------------------------------------------------*/
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+  
+body {
+    font-family: v.$fuentePrincipal;
+    font-size: 1.6rem;
+    // position: relative;
+    
+    background-image: linear-gradient(to top, rgb(0 0 0 / .75) 0%, rgb(0 0 0 / .75)), url(../assets/barberiabg4.jpg);
+    // background-image: linear-gradient(to top, rgb(0 0 0 / .6) 0%, rgb(0 0 0 / .6)), url(../assets/sebas.jpg);
+
+    // background-image: url(../assets/barberiabg3.jpg);
+    background-size: cover;
+    // padding: 10%;
+    
+    // background-repeat: no-repeat;
+    min-height: 100vh;
+    color: v.$blanco;
+    
+    position: relative;
+    // @include m.tablet {
+    //     overflow: hidden;
+    // }
+
+    // @include m.tabletH {
+    //     overflow-y:  scroll;
+    // }
+
+}
+
+
+
+
+[class$="contenedor"],
+.contenedor {
+    width: 90%;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+img {
+    max-width: 100%;
+    display: block;
+    // width: 100%;
+    // height: auto;
+}
+ul {
+    padding:0;
+    list-style: none;
+    margin: 0;
+}
+// .seccion {
+//     padding: 8rem 0;
+// }
+
+div:where(.swal2-container) div:where(.swal2-popup) {
+    font-size: 1.6rem !important;
+    background-color: #545454 !important;
+    color: v.$blanco !important;
+}

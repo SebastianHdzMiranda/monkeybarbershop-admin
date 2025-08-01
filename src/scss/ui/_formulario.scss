@@ -1,0 +1,131 @@
+@use '../bases/variables' as v; 
+@use '../bases/mixins' as m;
+
+
+.contenedor-formulario {
+    padding-bottom: 5rem;
+
+    // @include m.tablet {
+    //     padding-block: 0;
+        max-width: 90rem;
+    //     position: absolute;
+    //     left: 50%;
+    //     top: 55%;
+    //     transform: translate(-50%, -50%);
+    // }
+        
+    // @include m.desktop {
+    //     top: 62%;
+    // }
+
+    // @include m.tabletH {
+    //     position: relative;
+    //     transform: unset;
+    //     left: unset;
+    //     top: unset;
+    //     padding-block: 5rem;
+    // }
+}
+
+.formulario {
+    // margin-inline: auto;
+
+    .formulario__buttons {
+        display: flex;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+    .formulario__button {
+        padding: .5rem 3rem;
+        cursor: pointer;
+        background-color: v.$negro;
+        border: none;
+        color: v.$blanco;
+        border-radius: 2rem;
+    }
+
+    .formulario__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include m.tablet {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @include m.desktop {
+            grid-template-columns: repeat(6, 1fr);
+        }
+    }
+    .formulario__cell {
+        border: 1px solid v.$blanco;
+    }
+    .formulario__radio {
+        position: absolute;
+        left: -9999px;
+    }
+    .formulario__radio:checked + .formulario__radio-label {
+        background-color: #3c3b3bb0;
+        transition: background-color .2s ease;
+    }
+    .formulario__radio-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-block: 1rem;
+        cursor: pointer;
+        position: relative;
+        z-index: 100;
+        height: 100%;
+    }
+    .formulario__radio-img {
+        width: 6rem;
+        margin-bottom: 1rem;
+        z-index: -1;
+    }
+    .formulario__radio-text {
+        margin: 0;
+        text-align: center;
+    }
+
+    // 2da Ventana
+    .formulario__select {
+        width: 100%;
+        padding: 2rem;
+        text-align: center;
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        font-size: 1.6rem;
+    }
+
+    .formulario__alerta {
+        font-size: 1.6rem;
+        // font-weight: 700;
+        color: #FF0000;
+    }
+
+    .formulario__botones {
+        margin-top: 1.4rem;
+        // display: flex;
+        // justify-content: space-between;
+        display: grid;
+        // grid-template-columns: repeat(2);
+        justify-content: space-between;
+    }
+
+
+    .formulario__btn {
+        padding: .8rem 3rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color .3s ease;
+
+        &--next, &--submit {
+            grid-column: 2/3;
+        } 
+        
+        &:hover {
+            background-color: darken(v.$blanco, 20%);
+        }
+    }
+}

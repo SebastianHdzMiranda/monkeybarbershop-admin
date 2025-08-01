@@ -1,0 +1,12 @@
+@use '../bases/variables' as v; 
+@use '../bases/mixins' as m;
+
+.logoContainer {
+    // padding-block: 4rem;
+    .logo-enlace {
+        display: inline-block;
+    }
+    .logo {
+        width: 17rem;
+    }
+}

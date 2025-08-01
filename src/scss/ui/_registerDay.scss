@@ -1,0 +1,38 @@
+@use '../bases/variables' as v; 
+@use '../bases/mixins' as m;
+
+.registerDay {
+    border: 1px solid v.$blanco;
+    padding: 2rem;
+    max-height: 30rem;
+    overflow: scroll;
+    @include m.tablet{
+        max-height: 35rem;
+    }
+    &__fecha {
+
+    }
+    &__fecha-texto {
+        font-size: 2.5rem;
+    }
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__heading {
+        margin: 0 0 1rem 0;
+        font-weight: 700;
+        flex: 1;
+    }
+    &__campo {
+        flex: 1;
+        margin: 0;
+        padding-block: .3rem;
+    }
+}
