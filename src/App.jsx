@@ -1,5 +1,5 @@
 import './scss/app.scss'
-import logo from '../src/assets/logo.png'
+import logo from './assets/logo.png'
 import Dashboard from './components/Dashboard'
 import Header from './components/Header'
 // import Formulario from './components/formulario'
