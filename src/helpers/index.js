@@ -62,3 +62,29 @@ export function calculateTimeDifference(start, end) {
     return convertTo12HourFormat(difference)
     
 }
+
+export function calculateTimeDifferenceFood(startTime, endTime) {
+    // Helper para convertir "hh:mm a. m./p. m." a minutos totales del día
+    const toMinutes = (timeStr) => {
+      // Remover puntos y espacios innecesarios
+      const cleaned = timeStr.replace(/\s|\./g, '').toLowerCase(); // "07:22am"
+      const [time, meridian] = cleaned.match(/(\d{1,2}:\d{2})(am|pm)/).slice(1);
+      let [hours, minutes] = time.split(':').map(Number);
+  
+      if (meridian === 'am' && hours === 12) hours = 0;     // 12:xx am es 0 horas
+      if (meridian === 'pm' && hours !== 12) hours += 12;   // PM menos 12 solo si no es 12 pm
+  
+      return hours * 60 + minutes;
+    };
+  
+    const start = toMinutes(startTime);
+    const end = toMinutes(endTime);
+  
+    let diff = end - start;
+    if (diff < 0) diff += 24 * 60; // Por si el horario cruzó la medianoche
+  
+    const hours = Math.floor(diff / 60);
+    const minutes = diff % 60;
+  
+    return `${hours}h ${minutes}m`;
+}

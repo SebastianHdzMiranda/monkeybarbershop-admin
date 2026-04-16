@@ -44,11 +44,13 @@ export async function deleteSale(id) {
 
 export async function consumirAsistencias() {
 
-    const [response1, response2] = await Promise.all([
+    const [response1, response2, response3, response4] = await Promise.all([
         store.read("entrada", { limit: 1000 }),
         store.read("salida", { limit: 1000 }),
+        store.read("comida-entrada", { limit: 1000 }),
+        store.read("comida-salida", { limit: 1000 }),
     ]);
 
-    return { response1, response2};
+    return { response1, response2, response3, response4};
 
 }
